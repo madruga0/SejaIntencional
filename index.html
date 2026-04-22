@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encontro Intencional – Segunda Edição</title>
+
+    <!-- ============================================================
+       FONTS — fiéis ao PDF
+       · Montserrat     → sans-serif do corpo, títulos caps
+       · Pinyon Script  → caligrafia "Intencional"
+       · EB Garamond    → citações em serif itálico
+  ============================================================ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Pinyon+Script&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ============================================================
+       VARIÁVEIS
+    ============================================================ */
+        :root {
+            --verde: #2d4139;
+            --verde-medio: #3a5047;
+            --terracota: #c4713a;
+            --terracota-hover: #a85c2a;
+            --dourado: #c9a96e;
+            --dourado-claro: #e0c89a;
+            --creme: #f5ede0;
+            --areia: #e8d9c4;
+            --areia-clara: #f0e6d4;
+            --branco: #ffffff;
+            --texto: #2c2419;
+            --texto-suave: #5a4a38;
+        }
+
+        /* ============================================================
+       BASE
+    ============================================================ */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--verde);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--texto);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ============================================================
+       BOTÕES
+    ============================================================ */
+        .btn {
+            display: inline-block;
+            padding: 1em 2.6em;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            cursor: pointer;
+            border: none;
+            transition: background .2s, transform .2s;
+            text-align: center;
+        }
+
+        .btn-terracota {
+            background: var(--terracota);
+            color: var(--branco);
+        }
+
+        .btn-terracota:hover {
+            background: var(--terracota-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-creme {
+            background: var(--creme);
+            color: var(--terracota);
+        }
+
+        .btn-creme:hover {
+            background: var(--areia);
+            transform: translateY(-1px);
+        }
+
+        .btn-full {
+            width: 100%;
+            display: block;
+        }
+
+        /* ============================================================
+       HERO
+    ============================================================ */
+        .hero {
+            background: var(--verde);
+            padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero__bg {
+            position: absolute;
+            inset: 0;
+            /* SUBSTITUA: background-image: url('SUA_IMAGEM_HERO.jpg'); */
+            background-size: cover;
+            background-position: center top;
+            opacity: .15;
+        }
+
+        .hero__inner {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin-inline: auto;
+        }
+
+        .hero__badge {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: var(--dourado);
+            border: 1px solid rgba(201, 169, 110, .5);
+            padding: .35em 1.1em;
+            margin-bottom: .8rem;
+        }
+
+        .hero__encontro {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1.6rem, 3.5vw, 3.2rem);
+            font-weight: 300;
+            letter-spacing: .42em;
+            text-transform: uppercase;
+            color: var(--branco);
+            line-height: 1;
+        }
+
+        .hero__intencional {
+            font-family: 'Pinyon Script', cursive;
+            font-size: clamp(4.5rem, 11vw, 10rem);
+            color: var(--creme);
+            line-height: 1;
+            margin-top: .1rem;
+        }
+
+        .hero__line {
+            width: 36px;
+            height: 1px;
+            background: var(--dourado);
+            margin: 1.4rem auto;
+            opacity: .5;
+        }
+
+        .hero__sub {
+            font-size: .7rem;
+            font-weight: 500;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .5);
+            line-height: 1.8;
+        }
+
+        .hero__cta {
+            margin-top: 2rem;
+        }
+
+        /* ============================================================
+       STRIP TAGLINE
+    ============================================================ */
+        .strip {
+            background: var(--terracota);
+            padding: .9rem clamp(1.5rem, 5vw, 4rem);
+            text-align: center;
+        }
+
+        .strip p {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--branco);
+            line-height: 1.7;
+        }
+
+        .strip strong {
+            font-family: 'EB Garamond', Georgia, serif;
+            font-size: 20px;
+            font-style: italic;
+            font-weight: 500;
+            letter-spacing: .04em;
+            display: block;
+        }
+
+        /* ============================================================
+       AVANÇO
+    ============================================================ */
+        .avanco {
+            background: var(--creme);
+            padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+            text-align: center;
+        }
+
+        .avanco__label {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: .26em;
+            text-transform: uppercase;
+            color: var(--terracota);
+            margin-bottom: .5rem;
+        }
+
+        .avanco__headline {
+            font-family: 'EB Garamond', Georgia, serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--verde);
+            line-height: 1.4;
+            margin-bottom: .8rem;
+        }
+
+        .avanco__body {
+            font-size: .75rem;
+            color: var(--texto-suave);
+            line-height: 1.8;
+        }
+
+        .avanco__body strong {
+            color: var(--verde);
+            font-weight: 700;
+        }
+
+        /* ============================================================
+       GALERIA
+    ============================================================ */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            padding: 6px;
+        }
+
+        .galeria__item {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            border-radius: 6px;
+            background: #3a5047;
+        }
+
+        .galeria__item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ============================================================
+       SECTION HELPERS
+    ============================================================ */
+        .sec-label {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: .26em;
+            text-transform: uppercase;
+            color: var(--dourado);
+            margin-bottom: .4rem;
+        }
+
+        .sec-divider {
+            width: 28px;
+            height: 1px;
+            background: var(--dourado);
+            margin: .45rem auto .8rem;
+            opacity: .45;
+        }
+
+        .sec-title {
+            font-family: 'EB Garamond', Georgia, serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--branco);
+            line-height: 1.45;
+        }
+
+        .sec-title-dark {
+            color: var(--verde);
+        }
+
+        .sec-body {
+            font-size: .75rem;
+            color: rgba(255, 255, 255, .6);
+            line-height: 1.8;
+        }
+
+        /* ============================================================
+       O QUE VOCÊ VAI VIVER
+    ============================================================ */
+        .viver {
+            background: var(--verde);
+            padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+            text-align: center;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: .9rem;
+            margin-top: 1.6rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, .055);
+            border: 1px solid rgba(201, 169, 110, .18);
+            border-radius: 5px;
+            padding: 1.1rem .9rem;
+            text-align: left;
+        }
+
+        .card__title {
+            font-size: .62rem;
+            font-weight: 700;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            color: var(--dourado-claro);
+            margin-bottom: .3rem;
+        }
+
+        .card__body {
+            font-size: .68rem;
+            color: rgba(255, 255, 255, .5);
+            line-height: 1.65;
+        }
+
+        .callout {
+            margin-top: 1.6rem;
+            background: rgba(255, 255, 255, .045);
+            border-left: 2px solid var(--dourado);
+            padding: 1.1rem 1.1rem;
+            text-align: left;
+        }
+
+        .callout p {
+            font-family: 'EB Garamond', Georgia, serif;
+            font-size: .95rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, .75);
+            line-height: 1.65;
+        }
+
+        /* ============================================================
+       PILARES
+    ============================================================ */
+        .pilares {
+            background: var(--creme);
+            padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+            text-align: center;
+        }
+
+        .pilares__pre {
+            font-family: 'EB Garamond', Georgia, serif;
+            font-size: .95rem;
+            font-style: italic;
+            color: var(--texto-suave);
+            margin-bottom: .15rem;
+        }
+
+        .pilares__nao {
+            font-family: 'EB Garamond', Georgia, serif;
+            font-size: 2.1rem;
+            font-style: italic;
+            color: var(--verde);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        .pilares__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0;
+        }
+
+        .pilar {
+            padding: 1.35rem 1rem;
+            border-top: 1px solid var(--areia);
+        }
+
+        .pilar:last-child {
+            border-bottom: 1px solid var(--areia);
+        }
+
+        .pilar__title {
+            font-size: .68rem;
+            font-weight: 800;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--verde);
+            margin-bottom: .3rem;
+        }
+
+        .pilar__sub {
+            font-family: 'EB Garamond', Georgia, serif;
+            font-size: .9rem;
+            font-style: italic;
+            color: var(--texto-suave);
+        }
+
+        /* ============================================================
+       CTA MEIO
+    ============================================================ */
+        .cta-mid {
+            background: var(--terracota);
+            padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem);
+            text-align: center;
+        }
+
+        .cta-mid__label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .65);
+            margin-bottom: .5rem;
+        }
+
+        .cta-mid__headline {
+            font-family: 'EB Garamond', Georgia, serif;
+            font-size: 2.1rem;
+            font-style: italic;
+            color: var(--branco);
+            line-height: 1.15;
+            margin-bottom: 1.4rem;
+        }
+
+        /* ============================================================
+       DETALHES
+    ============================================================ */
+        .detalhes {
+            background: var(--verde);
+            padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+            text-align: center;
+        }
+
+        .detalhes__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: .8rem;
+            margin-top: 1.6rem;
+        }
+
+        @media (max-width: 480px) {
+            .detalhes__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .detalhes__grid2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: .8rem;
+            margin-top: .8rem;
+        }
+
+        .detalhe {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .45rem;
+        }
+
+        .detalhe__icon {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(201, 169, 110, .4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dourado);
+        }
+
+        .detalhe__label {
+            font-size: .48rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--dourado);
+        }
+
+        .detalhe__val {
+            font-size: .68rem;
+            font-weight: 500;
+            color: var(--branco);
+            line-height: 1.45;
+            text-align: center;
+        }
+
+        .detalhe-row {
+            margin-top: .8rem;
+            padding: .85rem 1rem;
+            background: rgba(255, 255, 255, .045);
+            border: 1px solid rgba(201, 169, 110, .16);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+        }
+
+        .detalhe-row .detalhe__label,
+        .detalhe-row .detalhe__val {
+            text-align: left;
+        }
+
+        /* ============================================================
+       DRESS CODE
+    ============================================================ */
+        .dresscode {
+            background: var(--creme);
+            padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+            text-align: center;
+        }
+
+        .dresscode__title {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2.8rem;
+            color: var(--verde);
+            line-height: 1.05;
+        }
+
+        .dresscode__sub {
+            font-size: .52rem;
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--texto-suave);
+            margin-bottom: 1.4rem;
+        }
+
+        .dresscode__body {
+            font-size: .76rem;
+            color: var(--texto-suave);
+            line-height: 1.8;
+            text-align: left;
+            margin-bottom: .9rem;
+        }
+
+        .dresscode__cor-titulo {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 1.7rem;
+            color: var(--verde);
+            margin-bottom: .7rem;
+        }
+
+        .swatches {
+            display: flex;
+            gap: .55rem;
+            justify-content: center;
+            margin-bottom: .9rem;
+        }
+
+        .sw {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 2px solid var(--branco);
+            box-shadow: 0 1px 6px rgba(0, 0, 0, .12);
+        }
+
+        .sw-1 {
+            background: #F7D3BB;
+        }
+
+        .sw-2 {
+            background: #E9A880;
+        }
+
+        .sw-3 {
+            background: #D77B4A;
+        }
+
+        .sw-4 {
+            background: #973C21;
+        }
+
+        .sw-5 {
+            background: #7D2F18;
+        }
+
+        .dresscode__palette-note {
+            font-family: 'EB Garamond', Georgia, serif;
+            font-size: .88rem;
+            font-style: italic;
+            color: var(--texto-suave);
+            line-height: 1.65;
+        }
+
+        .dresscode__img {
+            margin-top: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 3/2;
+            background: var(--areia);
+        }
+
+        .dresscode__img .ph {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .52rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--texto-suave);
+            background: var(--areia-clara);
+        }
+
+        /* ============================================================
+       FINAL CTA
+    ============================================================ */
+        .final {
+            background: var(--verde);
+            padding: clamp(2.5rem, 7vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final__bg {
+            position: absolute;
+            inset: 0;
+            /* SUBSTITUA: background-image: url('SUA_FOTO_FINAL.jpg'); */
+            background-size: cover;
+            background-position: center;
+            opacity: .2;
+        }
+
+        .final__inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .final__pre {
+            font-size: .55rem;
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .45);
+            margin-bottom: .5rem;
+        }
+
+        .final__headline {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 3.2rem;
+            color: var(--creme);
+            line-height: 1.05;
+            margin-bottom: 1.8rem;
+        }
+
+        .final__soli {
+            margin-top: 2rem;
+            font-family: 'Pinyon Script', cursive;
+            font-size: 1.8rem;
+            color: var(--dourado);
+        }
+
+        .final__soli-loc {
+            font-size: .48rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .28);
+            margin-top: .2rem;
+        }
+
+        /* ============================================================
+       FOOTER
+    ============================================================ */
+        .footer {
+            background: var(--verde);
+            padding: 1.2rem clamp(1.5rem, 5vw, 4rem);
+            text-align: center;
+            border-top: 1px solid rgba(201, 169, 110, .12);
+        }
+
+        .footer__links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer__links a {
+            font-size: .55rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .3);
+            transition: color .2s;
+        }
+
+        .footer__links a:hover {
+            color: var(--dourado);
+        }
+
+
+        /* ============================================================
+       INNER CONTAINER (limita largura do conteúdo em telas largas)
+    ============================================================ */
+        .inner {
+            max-width: 900px;
+            margin-inline: auto;
+            width: 100%;
+        }
+
+        .inner-sm {
+            max-width: 600px;
+            margin-inline: auto;
+            width: 100%;
+        }
+
+        @media (min-width: 700px) {
+            .dresscode__inner {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+                align-items: start;
+                text-align: left;
+            }
+
+            .dresscode__title,
+            .dresscode__sub {
+                text-align: left;
+            }
+
+            .swatches {
+                justify-content: flex-start;
+            }
+        }
+
+        /* ============================================================
+       ANIMAÇÃO
+    ============================================================ */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .fade-up.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <!-- ============================================================
+       HERO
+  ============================================================ -->
+        <section class="hero">
+            <div class="hero__bg" role="presentation"></div>
+            <div class="hero__inner">
+                <p class="hero__encontro">Encontro</p>
+                <p class="hero__intencional">Intencional</p>
+                <span class="hero__badge">Segunda Edição</span>
+                <div class="hero__line"></div>
+                <p class="hero__sub">Um dia para firmar sua identidade<br />na verdade que sustenta</p>
+                <div class="hero__cta">
+                    <!-- SUBSTITUA o href pelo link de inscrição -->
+                    <a href="https://pay.kiwify.com.br/AHZbb8K" target="_blank" class="btn btn-terracota">Quero viver essa experiência!</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       STRIP — ANO PASSADO
+  ============================================================ -->
+        <div class="strip">
+            <p>Ano passado foi</p>
+            <strong>apenas o começo!</strong>
+            <p style="margin-top:.25rem;">2026 é avanço: viver a verdade que sustenta.<br />Identidade em Cristo,
+                propósito e maturidade.</p>
+        </div>
+
+        <!-- ============================================================
+       AVANÇO
+  ============================================================ -->
+        <section class="avanco fade-up">
+            <div class="inner">
+                <p class="avanco__label">Por que participar</p>
+                <h2 class="avanco__headline">
+                    Se você já foi, sabe.<br />Se não foi, essa é sua chance.
+                </h2>
+                <p class="avanco__body">
+                    Não é só um encontro.<br />É um <strong>chamado para permanecer.</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       GALERIA
+  ============================================================ -->
+        <div class="galeria">
+            <div class="galeria__item">
+                <img src="./assets/img01.jpg" alt="">
+            </div>
+            <div class="galeria__item">
+                <img src="./assets/img02.jpg" alt="">
+            </div>
+            <div class="galeria__item">
+                <img src="./assets/img03.jpg" alt="">
+            </div>
+            <div class="galeria__item">
+                <img src="./assets/img04.jpg" alt="">
+            </div>
+        </div>
+
+        <!-- ============================================================
+       O QUE VOCÊ VAI VIVER
+  ============================================================ -->
+        <section class="viver fade-up">
+            <div class="inner">
+                <p class="sec-label">O que você vai viver</p>
+                <div class="sec-divider"></div>
+                <h2 class="sec-title">
+                    Um ambiente acolhedor e exclusivo<br />para edificação completa —<br />Corpo e alma
+                </h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <p class="card__title">Devocional fundamentado na Palavra</p>
+                        <p class="card__body">Meditação profunda e aplicada para alimentar o espírito.</p>
+                    </div>
+                    <div class="card">
+                        <p class="card__title">Comunhão real entre mulheres</p>
+                        <p class="card__body">Conexões autênticas em um ambiente seguro.</p>
+                    </div>
+                    <div class="card">
+                        <p class="card__title">Louvor que exalta a Cristo</p>
+                        <p class="card__body">Adoração centrada na presença de Deus.</p>
+                    </div>
+                    <div class="card">
+                        <p class="card__title">Palestras bíblicas e práticas</p>
+                        <p class="card__body">Ensinamentos que transformam e equipam.</p>
+                    </div>
+                    <div class="card">
+                        <p class="card__title">Dinâmicas e momentos especiais</p>
+                        <p class="card__body">Reflexão, leveza e renovação interior.</p>
+                    </div>
+                </div>
+                <div class="callout">
+                    <p>
+                        "Um tempo para ordenar a vida segundo Deus,<br />
+                        ser renovada pela graça e viver para Sua glória."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       PILARES — NÃO É APENAS UM EVENTO
+  ============================================================ -->
+        <section class="pilares fade-up">
+            <div class="inner">
+                <p class="pilares__pre">Não é apenas um</p>
+                <h2 class="pilares__nao">evento.</h2>
+                <div class="pilar">
+                    <p class="pilar__title">Identidade inabalável</p>
+                    <p class="pilar__sub">Firmada em Cristo, não nas circunstâncias</p>
+                </div>
+                <div class="pilar">
+                    <p class="pilar__title">Feminilidade como vocação</p>
+                    <p class="pilar__sub">Ordenada por Deus, não definida pela cultura</p>
+                </div>
+                <div class="pilar">
+                    <p class="pilar__title">Maturidade espiritual</p>
+                    <p class="pilar__sub">Submissa à Palavra, não guiada pelas emoções</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       CTA — GARANTE SUA VAGA
+  ============================================================ -->
+        <section class="cta-mid fade-up">
+            <div class="inner-sm">
+                <p class="cta-mid__label">Garanta seu lugar</p>
+                <h2 class="cta-mid__headline">Garanta sua vaga!</h2>
+                <!-- SUBSTITUA o href -->
+                <a href="https://pay.kiwify.com.br/AHZbb8K" target="_blank" class="btn btn-creme btn-full">Quero garantir minha vaga!</a>
+            </div>
+        </section>
+
+<!-- ============================================================
+   DETALHES DO EVENTO
+============================================================ -->
+<section class="detalhes fade-up" id="detalhes">
+    <div class="inner">
+        <p class="sec-label">Detalhes do evento</p>
+        <div class="sec-divider"></div>
+        <h2 class="sec-title">Tudo incluso, tudo pensado para você</h2>
+
+        <div style="display:flex; flex-direction:column; gap:.8rem; margin-top:1.6rem;">
+
+            <!-- Local -->
+            <div class="detalhe-row">
+                <div class="detalhe__icon" style="flex-shrink:0;">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M21 10c0 6-9 13-9 13S3 16 3 10a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                </div>
+                <div>
+                    <p class="detalhe__label">Local</p>
+                    <p class="detalhe__val">Soli Deo Gloria — Aldeia / PE</p>
+                </div>
+            </div>
+
+            <!-- Data -->
+            <div class="detalhe-row">
+                <div class="detalhe__icon" style="flex-shrink:0;">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <rect x="3" y="4" width="18" height="18" rx="2"/>
+                        <line x1="16" y1="2" x2="16" y2="6"/>
+                        <line x1="8" y1="2" x2="8" y2="6"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                </div>
+                <div>
+                    <p class="detalhe__label">Data</p>
+                    <p class="detalhe__val">28 de Novembro</p>
+                </div>
+            </div>
+
+            <!-- Horário -->
+            <div class="detalhe-row">
+                <div class="detalhe__icon" style="flex-shrink:0;">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                </div>
+                <div>
+                    <p class="detalhe__label">Horário</p>
+                    <p class="detalhe__val">Das 8h30 às 15h30</p>
+                </div>
+            </div>
+
+            <!-- Almoço -->
+            <div class="detalhe-row">
+                <div class="detalhe__icon" style="flex-shrink:0;">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M3 11l19-9-9 19-2-8-8-2z"/>
+                    </svg>
+                </div>
+                <div>
+                    <p class="detalhe__label">Almoço</p>
+                    <p class="detalhe__val">Incluso</p>
+                </div>
+            </div>
+
+            <!-- Café -->
+            <div class="detalhe-row">
+                <div class="detalhe__icon" style="flex-shrink:0;">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                    </svg>
+                </div>
+                <div>
+                    <p class="detalhe__label">Café exclusivo</p>
+                    <p class="detalhe__val">Soli Deo Gloria</p>
+                </div>
+            </div>
+
+            <!-- Kit -->
+            <div class="detalhe-row">
+                <div class="detalhe__icon" style="flex-shrink:0;">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <polyline points="20 12 20 22 4 22 4 12"/>
+                        <rect x="2" y="7" width="20" height="5"/>
+                        <line x1="12" y1="22" x2="12" y2="7"/>
+                    </svg>
+                </div>
+                <div>
+                    <p class="detalhe__label">Kit do evento</p>
+                    <p class="detalhe__val">Incluso</p>
+                </div>
+            </div>
+
+            <!-- Transporte -->
+            <div class="detalhe-row">
+                <div class="detalhe__icon" style="flex-shrink:0;">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <rect x="1" y="3" width="15" height="13"/>
+                        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                        <circle cx="5.5" cy="18.5" r="2.5"/>
+                        <circle cx="18.5" cy="18.5" r="2.5"/>
+                    </svg>
+                </div>
+                <div>
+                    <p class="detalhe__label">Transporte ida e volta incluso</p>
+                    <p class="detalhe__val">Saindo de Boa Viagem</p>
+                </div>
+            </div>
+
+            <!-- Livraria -->
+            <div class="detalhe-row">
+                <div class="detalhe__icon" style="flex-shrink:0;">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    </svg>
+                </div>
+                <div>
+                    <p class="detalhe__label">Livraria e loja</p>
+                    <p class="detalhe__val">Disponíveis no evento</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+        <!-- ============================================================
+       DRESS CODE
+  ============================================================ -->
+        <section class="dresscode fade-up">
+            <div class="inner">
+                <div class="dresscode__inner">
+                    <div>
+                        <p class="dresscode__title">Dress Code</p>
+                        <p class="dresscode__sub">& Orientações</p>
+
+                        <p class="dresscode__body">
+                            Sugerimos que as participantes usem roupas confortáveis, que permitam aproveitar todas as
+                            atividades do dia, incluindo momentos de louvor, palestras e atividade física leve.
+                        </p>
+                        <p class="dresscode__body">
+                            Pedimos que evitem roupas sensuais ou muito curtas, prezando pelo respeito, boa convivência
+                            e foco na experiência espiritual e de comunhão.
+                        </p>
+
+                        <p class="dresscode__cor-titulo">Sugestão De Cor:</p>
+                        <div class="swatches">
+                            <span class="sw sw-1" title="Areia claro"></span>
+                            <span class="sw sw-2" title="Bege / areia"></span>
+                            <span class="sw sw-3" title="Bege médio"></span>
+                            <span class="sw sw-4" title="Terracota"></span>
+                            <span class="sw sw-5" title="Dourado"></span>
+                        </div>
+                        <p class="dresscode__palette-note">
+                            Prefira terracota, bege/areia e dourado para comunicar firmeza, essência e valor.
+                            Essa paleta expressa uma mulher estabelecida, com identidade clara e comunicação madura.
+                        </p>
+
+                    </div><!-- /text -->
+                    <img src="./assets/img05.jpg" alt="Dress code do evento"
+                        style="margin-top:1.5rem;border-radius:8px;" />
+                </div><!-- /dresscode__inner -->
+            </div>
+        </section>
+
+        <!-- ============================================================
+       FINAL CTA
+  ============================================================ -->
+        <section class="final">
+            <div class="final__bg" role="presentation"></div>
+            <div class="final__inner fade-up">
+                <div class="inner-sm">
+                    <p class="final__pre">Faça parte deste encontro</p>
+                    <h2 class="final__headline">Transformador!</h2>
+                    <!-- SUBSTITUA o href -->
+                    <a href="https://pay.kiwify.com.br/AHZbb8K" target="_blank" class="btn btn-terracota">Se inscreva agora!</a>
+                    <p class="final__soli">Soli Deo Gloria</p>
+                    <p class="final__soli-loc">Aldeia / Pernambuco</p>
+                </div>
+            </div>
+        </section>
+
+    </div><!-- /page -->
+
+    <script>
+        const obs = new IntersectionObserver(
+            entries => entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+            }),
+            { threshold: 0.1 }
+        );
+        document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+    </script>
+</body>
+
+</html>
